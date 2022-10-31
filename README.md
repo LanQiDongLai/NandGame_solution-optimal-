@@ -4,27 +4,27 @@ nandgame网站所有题目最优解答案，包括文字解释
 跟据题目对两个继电器的描述得到 
 relay(default off) 表达式为A&B
 relay(default on) 表达式为 (~A)&B
-所以 A nand B = ~(A & B) = (~(A&B)&True) = (A relay(default off) B) relay(default on) 1
+所以 A nand B = \~(A & B) = (\~(A&B)&True) = (A relay(default off) B) relay(default on) 1
 ## 非门
 根据题目得到
 nand表达式为 ~(A&B)
-所以 ~A = ~(A&A) = A nand A
+所以 \~A = \~(A&A) = A nand A
 ## 与门
 根据题目得到
 nand表达式为 ~(A&B)
 inv 表达式为 ~A
-所以 A&B = ~(~(A&B)) = inv(A nand B)
+所以 A&B = \~(\~(A&B)) = inv(A nand B)
 ## 或门
 根据题目得到
 nand表达式为 ~(A&B)
 inv 表达式为 ~A
-所以 A|B = ~(~A & ~B) = inv(A) nand inv(B)
+所以 A|B = \~(\~A & ~B) = inv(A) nand inv(B)
 ## 异或门
 根据题目得到
 nand表达式为 ~(A&B)
-所以 A xor B = ~(~(A & ~(A & B)) & ~(B & ~(A & B)))
+所以 A xor B = \~(\~(A & \~(A & B)) & \~(B & ~(A & B)))
 简化为C=~(A&B) = A nand B
-A xor B = ~(~(A & C) & ~(B & C)) = (A nand C) nand (B nand C)
+A xor B = \~(\~(A & C) & ~(B & C)) = (A nand C) nand (B nand C)
 ## 半加器
 加法运算中，个位数上加法当两边同时为0时为0，两边同时为1时进位（结果位为0，进位为1），一个1一个0结果位上为1
 故结果位 a xor b
