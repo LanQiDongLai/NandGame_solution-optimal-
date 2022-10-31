@@ -1,4 +1,4 @@
-# NandGame_answer-optimal-
+# NandGame_solution-optimal-
 nandgame网站所有题目最优解答案，包括文字解释
 ## 与非门
 跟据题目对两个继电器的描述得到 
