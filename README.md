@@ -1,42 +1,42 @@
 # NandGame_solution-optimal-
 nandgame网站所有题目最优解答案，包括文字解释
 ## 与非门
-跟据题目对两个继电器的描述得到 
-relay(default off) 表达式为A&B
-relay(default on) 表达式为 (~A)&B
+跟据题目对两个继电器的描述得到 <br>
+relay(default off) 表达式为A&B<br>
+relay(default on) 表达式为 (~A)&B<br>
 所以 A nand B = \~(A & B) = (\~(A&B)&True) = (A relay(default off) B) relay(default on) 1
 ## 非门
-根据题目得到
-nand表达式为 ~(A&B)
-所以 \~A = \~(A&A) = A nand A
+根据题目得到<br>
+nand表达式为 ~(A&B)<br>
+所以 \~A = \~(A&A) = A nand A<br>
 ## 与门
-根据题目得到
-nand表达式为 ~(A&B)
-inv 表达式为 ~A
-所以 A&B = \~(\~(A&B)) = inv(A nand B)
+根据题目得到<br>
+nand表达式为 ~(A&B)<br>
+inv 表达式为 ~A<br>
+所以 A&B = \~(\~(A&B)) = inv(A nand B)<br>
 ## 或门
-根据题目得到
-nand表达式为 ~(A&B)
-inv 表达式为 ~A
-所以 A|B = \~(\~A & ~B) = inv(A) nand inv(B)
+根据题目得到<br>
+nand表达式为 ~(A&B)<br>
+inv 表达式为 ~A<br>
+所以 A|B = \~(\~A & ~B) = inv(A) nand inv(B)<br>
 ## 异或门
-根据题目得到
-nand表达式为 ~(A&B)
-所以 A xor B = \~(\~(A & \~(A & B)) & \~(B & ~(A & B)))
-简化为C=~(A&B) = A nand B
-A xor B = \~(\~(A & C) & ~(B & C)) = (A nand C) nand (B nand C)
+根据题目得到<br>
+nand表达式为 ~(A&B)<br>
+所以 A xor B = \~(\~(A & \~(A & B)) & \~(B & \~(A & B)))<br>
+简化为C=~(A&B) = A nand B<br>
+A xor B = \~(\~(A & C) & \~(B & C)) = (A nand C) nand (B nand C)<br>
 ## 半加器
-加法运算中，个位数上加法当两边同时为0时为0，两边同时为1时进位（结果位为0，进位为1），一个1一个0结果位上为1
-故结果位 a xor b
-进位 a and b
-将 a xor b 拆分，其中 xor中组件a nand b可以接上 inv 从而变成 and，节省材料
+加法运算中，个位数上加法当两边同时为0时为0，两边同时为1时进位（结果位为0，进位为1），一个1一个0结果位上为1<br>
+故结果位 a xor b<br>
+进位 a and b<br>
+将 a xor b 拆分，其中 xor中组件a nand b可以接上 inv 从而变成 and，节省材料<br>
 ## 全加器
-全加器为三个一位二进制数进行相加，结果位上为a和b之间相加的结果再和c之间相加的结果，进位为a和b之间相加的结果是否有进位，或a和b之间相加的结果和c相加后有进位
-所以
-结果位为 ((a add b)[l] add c)[l]
-进位为((a add b)[l] add c)[h] or (a add b)[h] 简化为 X = a add b, (X[l] add c)[h] or X[h]
-其中 add 中进位输出的那一位由 inv(a nand b)得来，而a or b可以转化成 inv(a) nand inv(b)
-所以可以将add拆开，将其中inv去掉，a nand b的结果直接作为进位的反进行输出，然后将or改成inv(a) nand inv(b)，这里正好需要进位的反，所以可以避免连续两次取反浪费材料
+全加器为三个一位二进制数进行相加，结果位上为a和b之间相加的结果再和c之间相加的结果，进位为a和b之间相加的结果是否有进位，或a和b之间相加的结果和c相加后有进位<br>
+所以<br>
+结果位为 ((a add b)[l] add c)[l]<br>
+进位为((a add b)[l] add c)[h] or (a add b)[h] 简化为 X = a add b, (X[l] add c)[h] or X[h]<br>
+其中 add 中进位输出的那一位由 inv(a nand b)得来，而a or b可以转化成 inv(a) nand inv(b)<br>
+所以可以将add拆开，将其中inv去掉，a nand b的结果直接作为进位的反进行输出，然后将or改成inv(a) nand inv(b)，这里正好需要进位的反，所以可以避免连续两次取反浪费材料<br>
 ## 多位加法器
 根据加法的运算法则，当前两位之间进行加法发生进位时，进位的数值作为下一位加法的输入
 所以
