@@ -165,13 +165,13 @@ sw通过两个选择器来选择第一个操作数是x还是y，第二个操作�
 但是or与and连线之间存在两个连续的inv，转化为nand后消除inv<br>
 ## D 锁存器
 
-![D_latch](imgs/D_latch.png)
+![D_latch](imgs/D_Latch.png)
 
 当s为0时，将d的值作为输出<br>
 当s为1时，将输出的结果作为输出<br>
 ## 触发器
 
-![data_flip-flop](imgs/data_flip-flop.png)
+![data_flip-flop](imgs/Data_flip-flop.png)
 
 对于out的值，由in作为数值输入并且由cl作为存储控制<br>
 对于in的值，由d作为数值输入并且由st作为存储控制，但是题意中说明，当cl为1时st无效，所以应当为st and inv(cl)作为存储控制<br>
